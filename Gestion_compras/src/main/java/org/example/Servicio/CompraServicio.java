@@ -60,7 +60,7 @@ public class CompraServicio {
             throw new Exception("Error: ID de producto inválido.");
         }
 
-        // Llamada al método especializado del repositorio
+        // Llamada al metodo especializado del repositorio
         Optional<ComparacionPrecioDTO> mejorOpcion = repositorio.obtenerMejorOpcion(idProducto);
 
         if (mejorOpcion.isEmpty()) {

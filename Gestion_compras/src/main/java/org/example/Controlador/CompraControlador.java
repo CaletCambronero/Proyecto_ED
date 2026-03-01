@@ -1,5 +1,6 @@
 package org.example.Controlador;
 
+import org.example.Dto.ComparacionPrecioDTO;
 import org.example.Modelo.Compra;
 import org.example.Modelo.Usuario;
 import org.example.Servicio.CompraServicio;
@@ -53,7 +54,7 @@ public class CompraControlador {
 
         // 3. El controlador llama al servicio
         try {
-            servicio.registrar(nuevaCompra);
+            servicio.registrarCompra(nuevaCompra);
             // 4. El controlador actualiza la vista con el resultado
             vista.mostrarMensaje("✅ Compra registrada con éxito.");
         } catch (Exception e) {
@@ -69,7 +70,7 @@ public class CompraControlador {
         }
 
         try {
-            ComparacionPrecioDTO mejor = servicio.obtenerMejorPrecio(idProd);
+            ComparacionPrecioDTO mejor = servicio.obtenerMejorOpcion(idProd);
             vista.mostrarMensaje("\n--- MEJOR OPCIÓN ---");
             vista.mostrarMensaje("Supermercado: " + mejor.getNombreSupermercado());
             vista.mostrarMensaje("Precio: $" + mejor.getPrecio());
